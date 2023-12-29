@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Icecreams...</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #noButton {
+            position: relative;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>You like icecreams too... right?</h1>
+    <img src="{% static 'images/icecream.jpg' %}" alt="Your Photo" width="400">
+
+    <div class="button-container">
+
+    <button id="yesButton" class="button">
+      <a href="/thankyou">Yes</a>
+    </button>
+    <button id="noButton" class="button" onclick="moveButton()">No</button>
+
+    </div>
+
+    <script>
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var x = Math.random() * (window.innerWidth - button.offsetWidth);
+            var y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
